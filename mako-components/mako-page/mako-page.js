@@ -1,7 +1,18 @@
 Polymer('mako-page', {
     ready: function() {
+        this.onResize();
+        $( window ).resize(this.onResize.bind(this));
+        console.log("mako-page ready()");
 
-        console.log("page ready()");
+
+    },
+
+    onResize: function(){
+        var page = this.$.page;
+        var windowHeight = $(window).innerHeight();
+        console.log(page);
+        console.log(windowHeight - 64);
+        page.style.height = windowHeight - 64 + "px";
     },
 
     fadeIn: function(){
